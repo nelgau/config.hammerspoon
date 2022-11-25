@@ -1,17 +1,17 @@
-local Apps = {}
+local M = {}
 
 local Alacritty = require('nelgau.alacritty')
 
-Apps.launchOrFocus = function(app)
+M.launchOrFocus = function(app)
   return function()
     Alacritty.hide()
     hs.application.launchOrFocus(app)
   end
 end
 
-Apps.chromeOpenLocation = function(url)
+M.chromeOpenLocation = function(url)
   return function()
-    Apps.launchOrFocus("Google Chrome")()
+    M.launchOrFocus("Google Chrome")()
     if hs.application.find("Google Chrome") then
       hs.applescript.applescript(string.format([[
         tell application "Google Chrome"
@@ -22,7 +22,7 @@ Apps.chromeOpenLocation = function(url)
   end
 end
 
-Apps.iTermOpenDefaultTerminal = function()
+M.iTermOpenDefaultTerminal = function()
   Alacritty.hide()
   if hs.application.find("iTerm") then
     hs.applescript.applescript([[
@@ -35,4 +35,4 @@ Apps.iTermOpenDefaultTerminal = function()
   end
 end
 
-return Apps
+return M

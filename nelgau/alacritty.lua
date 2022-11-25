@@ -1,4 +1,4 @@
-local Alacritty = {}
+local M = {}
 
 local APP_NAME = 'Alacritty'
 local MINIMIZED_WIDTH = 2400
@@ -63,7 +63,7 @@ function launchApp()
   end
 end
 
-Alacritty.toggleVisibility = function()
+M.toggleVisibility = function()
   local app = findApp()
 
   if app ~= nil then
@@ -77,7 +77,7 @@ Alacritty.toggleVisibility = function()
   end
 end
 
-Alacritty.toggleFullscreen = function()
+M.toggleFullscreen = function()
   if canMinimize() then
     local app = findApp()
 
@@ -90,7 +90,7 @@ Alacritty.toggleFullscreen = function()
   end
 end
 
-Alacritty.hide = function()
+M.hide = function()
   local app = findApp()
 
   if app ~= nil then
@@ -98,4 +98,4 @@ Alacritty.hide = function()
   end
 end
 
-return Alacritty
+return M
