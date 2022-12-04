@@ -57,4 +57,13 @@ function reloadConfig(files)
   }):send()
 end
 
-ext.watchers.pathwatcher = hs.pathwatcher.new(HS_PATH, reloadConfig):start()
+function hsPathChanged(files)
+  for _, file in pairs(files) do
+    if file:sub(-4) == '.lua' then
+      reloadConfig()
+      return
+    end
+  end
+end
+
+ext.watchers.pathwatcher = hs.pathwatcher.new(HS_PATH, hsPathChanged):start()
