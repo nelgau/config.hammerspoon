@@ -14,6 +14,9 @@ ext = {
 --
 
 local bindings = {
+  [{'ctrl'}] = {
+    ["'"] = Alacritty.toggleVisibility,
+  },
   [{'cmd'}] = {
     ['`'] = Alacritty.toggleVisibility,
   },
