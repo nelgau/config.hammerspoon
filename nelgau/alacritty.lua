@@ -13,7 +13,7 @@ function canMinimize()
 end
 
 function findApp()
-  return hs.application.get(APP_NAME)
+  return hs.application.find(APP_NAME, true)
 end
 
 function awaitWindow(app)
